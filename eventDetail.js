@@ -30,7 +30,7 @@ store.subscribe(() => {
   for (let p of participants) {
     if (p.show) {
       for (let temp of p.calendar) {
-        for (let time = temp[0]; time <= temp[1]; time = timeadd30(time)) {
+        for (let time = temp[0]; time < temp[1]; time = timeadd30(time)) {
           const that = $('#ED' + time)
           let c = color2num(that.css('background-color'))
           c = num2color(c - (3 - temp[2]) / participants.filter(p => p.show).length)

@@ -1,7 +1,7 @@
 const initialState = {
   calendar: {
     button: 'free',
-    color: '#000000',
+    color: '#0096ff',
     popup: false
   },
   nav: 'calendar',

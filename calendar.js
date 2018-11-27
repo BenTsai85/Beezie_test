@@ -38,8 +38,10 @@ store.subscribe(() => {
   $('.circle.' + page.button).show()
   $('.circle.untoggled.' + page.button).hide()
 
+  $('.timeblock').css({ backgroundColor: 'white', borderBottomColor: '#eeeeee', borderBottomStyle: 'dotted' })
+
   for (let temp of calendar) {
-    for (let time = temp[0]; time <= temp[1]; time = timeadd30(time)) {
+    for (let time = temp[0]; time < temp[1]; time = timeadd30(time)) {
       $('#' + time).css({ backgroundColor: num2color(temp[2]), borderBottomColor: num2color(temp[2]), borderBottomStyle: 'solid' })
     }
   }
@@ -86,14 +88,73 @@ $('.availitem').click(e => {
 
 $('.calendaradd').click(e => {
   $('.popupPage').show()
+  $('.calendarAddPopup').show()
 })
 
-$('#calendarAddPopupInput1').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM YYYY - HH:mm', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 29) }).on('change', (e, date) => {
-  $('#calendarAddPopupInput2').bootstrapMaterialDatePicker('setMinDate', date)
+$('#calendarAddPopupInput1').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
+  $('#calendarAddPopupInput3').bootstrapMaterialDatePicker('setMinDate', date)
 })
 
-$('#calendarAddPopupInput2').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM YYYY - HH:mm', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 29) }).on('change', (e, date) => {
-  $('#calendarAddPopupInput1').bootstrapMaterialDatePicker('setMaxDate', date)
+$('#calendarAddPopupInput2').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22), date: false })
+
+$('#calendarAddPopupInput3').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
+  $('#calendarAddPopupInput1').bootstrapMaterialDatePicker('setMinDate', date)
+})
+
+$('#calendarAddPopupInput4').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22), date: false })
+
+$('.calendarAddPopupConfirm').click(e => {
+  const calendar = store.getState().account.calendar
+  const startDate = $('#calendarAddPopupInput1')[0].value
+  let startTime = $('#calendarAddPopupInput2')[0].value
+  const endDate = $('#calendarAddPopupInput3')[0].value
+  let endTime = $('#calendarAddPopupInput4')[0].value
+
+  if (parseInt(startTime.substring(3)) >= 30) {
+    startTime = startTime.substring(0, 3) + "30"
+  } else {
+    startTime = startTime.substring(0, 3) + "00"
+  }
+
+  if (parseInt(endTime.substring(3)) >= 30) {
+    endTime = endTime.substring(0, 3) + "30"
+  } else {
+    endTime = endTime.substring(0, 3) + "00"
+  }
+
+  const start = '201810' + startDate.substring(5, 7) + startTime.substring(0, 2) + startTime.substring(3)
+  const end = '201810' + endDate.substring(5, 7) + endTime.substring(0, 2) + endTime.substring(3)
+
+  for (let i = 0; i < calendar.length; ++i) {
+    if (calendar[i][0] < start && calendar[i][1] > start && end >= calendar[i][1]) {
+      calendar[i][1] = start
+    } else if (start <= calendar[i][0] && calendar[i][0] < end && calendar[i][1] > end) {
+      calendar[i][0] = end
+    } else if (calendar[i][0] < start && calendar[i][1] > end) {
+      calendar.push([end, calendar[i][1], calendar[i][2]])
+      calendar[i][1] = start
+    } else if (start <= calendar[i][0] && end >= calendar[i][1]) {
+      calendar.splice(i, 1)
+      --i
+    }
+  }
+
+  const num = parseInt(color.substring(1, 3), 16) / 85
+  if (num != 3) {
+    calendar.push([ start, end, num ])
+  }
+
+  store.dispatch({
+    type: 'calendar',
+    subtype: 'update',
+    payload: calendar
+  })
+
+  $('.calendarAddPopup input').bootstrapMaterialDatePicker('setDate', new Date(2018, 10, 22))
+})
+
+$('.calendarAddPopupCancel').click(e => {
+  $('.calendarAddPopup input').bootstrapMaterialDatePicker('setDate', new Date(2018, 10, 22))
 })
 
 // $('.mainPage .timeblock').on('touchstart', e => {
