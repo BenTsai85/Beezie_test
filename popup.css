@@ -24,3 +24,16 @@
   font-family: sans-serif;
   margin-bottom: 10pt;
 }
+
+.calendarAddPopup {
+  position: relative;
+  top: calc(50% - 50pt);
+  left: 15%;
+}
+
+.calendarAddPopup input {
+  width: 70%;
+  height: 30pt;
+  text-align: center;
+  margin-bottom: 40pt;
+}

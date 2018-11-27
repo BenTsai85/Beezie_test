@@ -25,10 +25,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <title>Beezie</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bootstrap-material-datetimepicker.css">
+    <script type="text/javascript" src="bootstrap-material-datetimepicker.js"></script>
   </head>
   <body>
     <div class="popupPage">
@@ -43,6 +43,10 @@
         <div>
           3. Drag through the slots that you will be in that status
         </div>
+      </div>
+      <div class="calendarAddPopup">
+        <input id="calendarAddPopupInput1" placeholder="Start Time" />
+        <input id="calendarAddPopupInput2" placeholder="End Time"/>
       </div>
     </div>
     <div class="mainPage">
@@ -59,6 +63,7 @@
       </div>
       <hr>
       <div class="page calendar">
+        <img class="calendaradd" src="image/add.svg" />
         <div class="avail">
           <div class="availrow">
             <div class="availitem free">

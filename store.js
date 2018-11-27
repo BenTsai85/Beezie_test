@@ -2,7 +2,7 @@ const initialState = {
   calendar: {
     button: 'free',
     color: '#000000',
-    dbltap: false,
+    popup: false
   },
   nav: 'calendar',
   subnav: 'eventdetail',
@@ -20,12 +20,12 @@ const reducer = (state = initialState, action) => {
       switch (action.subtype) {
         case 'button':
           return { ...state, calendar: { ...state.calendar, button: action.payload } }
-        case 'dbltap':
-          return { ...state, calendar: { ...state.calendar, dbltap: !state.calendar.dbltap } }
         case 'update':
           mockup.accounts = mockup.accounts.map(a => a.name === "Sam" ? { ...a, calendar: action.payload }: a )
           window.localStorage.setItem('Beezie', JSON.stringify(mockup))
           return { ...state, account: { ...state.account, calendar: action.payload }, accounts: mockup.accounts }
+        case 'add':
+          return { ...state, calendar: { ...state.calendar, popup: true } }
       }
       break
     case 'nav':

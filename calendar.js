@@ -43,13 +43,19 @@ store.subscribe(() => {
       $('#' + time).css({ backgroundColor: num2color(temp[2]), borderBottomColor: num2color(temp[2]), borderBottomStyle: 'solid' })
     }
   }
+
+  if (page.popup) {
+    $('.calendarAddPopup').show()
+  } else {
+    $('.calendarAddPopup').hide()
+  }
 })
 
 store.dispatch({
   type: 'init'
 })
 
-var tapped = false, doubleTapped = false, color = '#0096ff', offsetTop, offsetLeft
+var color = '#0096ff'
 
 $('.availitem').click(e => {
   let target = e.currentTarget
@@ -78,88 +84,102 @@ $('.availitem').click(e => {
   }
 })
 
-$('.mainPage .timeblock').on('touchstart', e => {
-  if (!tapped) {
-    tapped = setTimeout(() => {
-      tapped = null
-    }, 300)
-  } else {
-    clearTimeout(tapped)
-    tapped = null
-    e.preventDefault()
-    doubleTapped = true
-
-    const element = $(e.target)[0]
-    offsetTop = element.offsetTop
-    offsetLeft = element.offsetLeft
-    element.style.backgroundColor = color
-    if (color === '#ffffff') {
-      element.style.borderBottomStyle = 'dotted'
-      element.style.borderBottomColor = '#eeeeee'
-    } else {
-      element.style.borderBottomStyle = 'solid'
-      element.style.borderBottomColor = color
-    }
-  }
+$('.calendaradd').click(e => {
+  $('.popupPage').show()
 })
 
-$('.mainPage .timeblock').on('touchend', e => {
-  if (doubleTapped) {
-    doubleTapped = false
-    const calendar = []
-    let date
-    let temp = null
-    let timeblocks = $('.mainPage .timeblock')
-    let c
-
-    for (let i = 0; i < timeblocks.length - 1; ++i) {
-      c = color2num(timeblocks[i].style.backgroundColor)
-      if (c < 3) {
-        if (temp == null) {
-          temp = [timeblocks[i].id, timeblocks[i].id, c]
-        } else {
-          if (c === temp[2]) {
-            temp[1] = timeblocks[i].id
-          } else {
-            calendar.push(temp)
-            temp = [timeblocks[i].id, timeblocks[i].id, c]
-          }
-        }
-      } else if (temp != null) {
-        calendar.push(temp)
-        temp = null
-      }
-    }
-
-    store.dispatch({
-      type: 'calendar',
-      subtype: 'update',
-      payload: calendar
-    })
-
-  }
+$('#calendarAddPopupInput1').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM YYYY - HH:mm', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 29) }).on('change', (e, date) => {
+  $('#calendarAddPopupInput2').bootstrapMaterialDatePicker('setMinDate', date)
 })
 
-$('.mainPage .timeblock').on('touchmove', e => {
-  if (doubleTapped) {
-    const touch = e.originalEvent.touches[0]
-    $('.timeblock').each((index, element) => {
-      if (element.offsetLeft === offsetLeft && touch.clientX > offsetLeft && touch.clientX < offsetLeft + element.offsetWidth &&
-          ((element.offsetTop > offsetTop && touch.clientY + $('.timewrapper')[0].scrollTop > element.offsetTop) ||
-          (touch.clientY + $('.timewrapper')[0].scrollTop < element.offsetTop + element.offsetHeight && element.offsetTop < offsetTop))) {
-        element.style.backgroundColor = color
-        if (color === '#ffffff') {
-          element.style.borderBottomStyle = 'dotted'
-          element.style.borderBottomColor = '#eeeeee'
-        } else {
-          element.style.borderBottomStyle = 'solid'
-          element.style.borderBottomColor = color
-        }
-      }
-    })
-  }
+$('#calendarAddPopupInput2').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM YYYY - HH:mm', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 29) }).on('change', (e, date) => {
+  $('#calendarAddPopupInput1').bootstrapMaterialDatePicker('setMaxDate', date)
 })
+
+// $('.mainPage .timeblock').on('touchstart', e => {
+//   if (!tapped) {
+//     tapped = setTimeout(() => {
+//       tapped = null
+//     }, 300)
+//   } else {
+//     clearTimeout(tapped)
+//     tapped = null
+//     e.preventDefault()
+//     doubleTapped = true
+
+//     const element = $(e.target)[0]
+//     offsetTop = element.offsetTop
+//     offsetLeft = element.offsetLeft
+//     element.style.backgroundColor = color
+//     if (color === '#ffffff') {
+//       element.style.borderBottomStyle = 'dotted'
+//       element.style.borderBottomColor = '#eeeeee'
+//     } else {
+//       element.style.borderBottomStyle = 'solid'
+//       element.style.borderBottomColor = color
+//     }
+//   }
+// })
+
+// $('.mainPage .timeblock').on('touchend', e => {
+//   if (doubleTapped) {
+//     doubleTapped = false
+//     const calendar = []
+//     let date
+//     let temp = null
+//     let timeblocks = $('.mainPage .timeblock')
+//     let c
+
+//     for (let i = 0; i < timeblocks.length - 1; ++i) {
+//       c = color2num(timeblocks[i].style.backgroundColor)
+//       if (c < 3) {
+//         if (temp == null) {
+//           temp = [timeblocks[i].id, timeblocks[i].id, c]
+//         } else {
+//           if (c === temp[2]) {
+//             temp[1] = timeblocks[i].id
+//           } else {
+//             calendar.push(temp)
+//             temp = [timeblocks[i].id, timeblocks[i].id, c]
+//           }
+//         }
+//       } else if (temp != null) {
+//         calendar.push(temp)
+//         temp = null
+//       }
+//     }
+
+//     store.dispatch({
+//       type: 'calendar',
+//       subtype: 'update',
+//       payload: calendar
+//     })
+
+//   }
+// })
+
+// $('.mainPage .timeblock').on('touchmove', e => {
+//   if (doubleTapped) {
+//     const touch = e.originalEvent.touches[0]
+//     $('.timeblock').each((index, element) => {
+//       if (element.offsetLeft === offsetLeft && touch.clientX > offsetLeft && touch.clientX < offsetLeft + element.offsetWidth &&
+//           ((element.offsetTop > offsetTop && touch.clientY + $('.timewrapper')[0].scrollTop > element.offsetTop) ||
+//           (touch.clientY + $('.timewrapper')[0].scrollTop < element.offsetTop + element.offsetHeight && element.offsetTop < offsetTop))) {
+//         element.style.backgroundColor = color
+//         if (color === '#ffffff') {
+//           element.style.borderBottomStyle = 'dotted'
+//           element.style.borderBottomColor = '#eeeeee'
+//         } else {
+//           element.style.borderBottomStyle = 'solid'
+//           element.style.borderBottomColor = color
+//         }
+//       }
+//     })
+//   }
+// })
 
 $('.questionMark').click(e => {
   $('.popupPage').show()
+  $('.popupBox').show()
+  $('.calendarAddPopup').hide()
 })
