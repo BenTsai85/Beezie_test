@@ -62,7 +62,7 @@
 
                  this.initButtons();
 
-                 this._attachEvent($(window), 'resize', this._centerBox.bind(this));
+                //  this._attachEvent($(window), 'resize', this._centerBox.bind(this));
                  this._attachEvent(this.$dtpElement.find('.dtp-content'), 'click', this._onElementClick.bind(this));
                  this._attachEvent(this.$dtpElement, 'click', this._onBackgroundClick.bind(this));
                  this._attachEvent(this.$dtpElement.find('.dtp-close > a'), 'click', this._onCloseClick.bind(this));
@@ -1271,9 +1271,9 @@
               },
               _centerBox: function ()
               {
-                 var h = (this.$dtpElement.height() - this.$dtpElement.find('.dtp-content').height()) / 2;
-                 this.$dtpElement.find('.dtp-content').css('marginLeft', -(this.$dtpElement.find('.dtp-content').width() / 2) + 'px');
-                 this.$dtpElement.find('.dtp-content').css('top', h + 'px');
+                //  var h = (this.$dtpElement.height() - this.$dtpElement.find('.dtp-content').height()) / 2;
+                //  this.$dtpElement.find('.dtp-content').css('marginLeft', -(this.$dtpElement.find('.dtp-content').width() / 2) + 'px');
+                //  this.$dtpElement.find('.dtp-content').css('top', h + 'px');
               },
               enableDays: function ()
               {

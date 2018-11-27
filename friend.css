@@ -15,7 +15,7 @@
     border: 1px solid #ddd; /* Add a grey border */
 }
 
-h5, a{
+h5, .friend a{
   text-align: center;
   font-size: 12pt;
   color: DimGrey;
