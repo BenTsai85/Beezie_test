@@ -1,0 +1,88 @@
+body {
+  padding-top: 20px;
+
+  
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#596a72+35,cedce7+100 */
+
+
+}
+
+.jumbotron {
+
+background: url(image/login.jpg) repeat center center ;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+color: #000000;
+
+height: 500px;
+
+}
+
+.container span {
+	visibility: hidden;
+
+	
+}
+
+ .row li {
+
+ 	display:block;
+ }
+
+.footer{
+
+	height:  auto;
+	
+	width: auto;
+	border-top: solid #5982c0 10px;
+	border-top-left-radius:50px;
+	border-top-right-radius:50px;
+
+
+	text-align: sky;
+	background-color: rgb(89,106,114);
+	color: white;
+
+
+
+}
+
+.footer li {
+display: block;
+
+}
+
+
+.footer a {
+	color: white;
+
+
+
+}
+
+.footer a:hover {
+
+	
+
+	-webkit-text-decoration:underline white;
+}
+
+.hours{
+
+	margin-bottom: -8px;
+}
+
+.hours li{
+
+	list-style-type: none;
+
+	
+}
+
+.footer span {
+
+	visibility: hidden;
+}

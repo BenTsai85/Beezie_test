@@ -1,0 +1,21 @@
+.guest {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.guestBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 30pt;
+  height: 30pt;
+}
+
+.guestBarItem {
+  text-align: center;
+}
+
+.invitePeople {
+  color: lightgray;
+}

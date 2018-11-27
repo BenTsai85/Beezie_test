@@ -1,0 +1,125 @@
+.eventDetail {
+  position: relative;
+}
+
+.EDheader {
+  width: 100%;
+  height: 130pt;
+  background-size: 100% 130pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.EDname {
+  margin: 10pt;
+  font-family: sans-serif;
+  color: white;
+  font-size: 20pt;
+}
+
+.EDwillingness {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50pt;
+  border-bottom-style: solid;
+  border-bottom-color: lightgray;
+  border-bottom-width: 1pt;
+}
+
+.EDwillingness img {
+  width: 20pt;
+  margin-bottom: 3pt;
+}
+
+.EDwillingness > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9pt;
+  width: 40pt;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.EDinfo {
+  border-bottom-style: solid;
+  border-bottom-color: lightgray;
+  border-bottom-width: 1pt;
+}
+
+.EDinfo > div {
+  width: 100%;
+  display: flex;
+  margin-top: 10pt;
+  margin-bottom: 10pt;
+  font-size: 10pt;
+  font-family: sans-serif;
+}
+
+.EDinfo img {
+  width: 13pt;
+  height: 13pt;
+  margin-left: 10pt;
+  margin-right: 5pt;
+}
+
+.EDdetail {
+  border-bottom-style: solid;
+  border-bottom-color: lightgray;
+  border-bottom-width: 1pt;
+}
+
+.EDdetailheader {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 5pt;
+  margin-left: 10pt;
+  font-size: 11pt;
+}
+
+.EDdetailinfo {
+  font-family: sans-serif;
+  font-size: 10pt;
+  margin-left: 25pt;
+  margin-bottom: 10pt;
+}
+
+.eventDetail .timewrapper {
+  height: 250pt;
+}
+
+.eventDetail .calendar {
+  display: flex;
+  flex-direction: column;
+}
+
+.EDcalendarheader {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 5pt;
+  margin-left: 10pt;
+  margin-bottom: 1pt;
+  font-size: 11pt;
+}
+
+.eventDetail .month {
+  float: left;
+}
+
+.eventDetail .timeblock.blockend {
+  border-bottom-style: none;
+}
+
+.showCalendarOptionTitle {
+  margin-left: 15pt;
+  font-size: 10pt;
+  float: left;
+}
+
+.showCalendarOptionToggle {
+  float: right;
+  position: relative;
+  margin-right: 15pt;
+}

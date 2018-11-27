@@ -1,0 +1,20 @@
+
+.navbar {
+  padding: 0;
+  flex-basis: 30pt;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navitem {
+  width: 15pt;
+}
+
+.toggled, .page, .navitem.calendar {
+  display: none;
+}
+
+.calendar.toggled, .calendar.page {
+  display: inline;
+}

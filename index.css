@@ -1,0 +1,45 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.mainPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.subPage {
+  height: 100%;
+  display: none;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.page {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+hr {
+  margin: 0;
+}
+
+.backbutton {
+  position: absolute;
+  margin: 5pt;
+  width: 15pt;
+  z-index: 2;
+  margin: 5pt;
+}
+
+.helpMark {
+  width: 25pt;
+  position: absolute;
+  bottom: 15pt;
+  left: 15pt;
+  background-color: white;
+  border-radius: 12.5pt;
+  z-index: 1;
+  margin: 5pt;
+}

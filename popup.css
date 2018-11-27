@@ -1,0 +1,26 @@
+.popupPage {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(150, 150, 150, 0.5);
+  position: absolute;
+  z-index: 2;
+}
+
+.popupBox {
+  width: 70%;
+  height: 200pt;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 15pt;
+  top: calc(50% - 100pt);
+  left: 15%;
+  border-radius: 10pt;
+}
+
+.popupTitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 13pt;
+  font-family: sans-serif;
+  margin-bottom: 10pt;
+}

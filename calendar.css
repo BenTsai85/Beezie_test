@@ -1,0 +1,170 @@
+.page.calendar {
+  display: flex;
+  flex-direction: column;
+}
+
+.availrow {
+  height: 30pt;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 27pt;
+}
+
+.availitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.circle {
+  height: 20pt;
+  margin-right: 5pt;
+  margin-left: 5pt;
+  display: none;
+}
+
+.untoggled {
+  color: lightgray;
+}
+
+.description {
+  width: 80pt;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+}
+
+.circle.untoggled {
+  display: inline;
+}
+
+.circle.unavailable {
+  display: inline;
+}
+
+.circle.unavailable.untoggled {
+  display: none;
+}
+
+.page .calendar {
+  height: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar .header {
+  box-shadow: 0 10px 18px -10px #888888;
+  z-index: 1;
+}
+
+.month {
+  margin-left: 10pt;
+  margin-top: 3pt;
+  margin-bottom: 3pt;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.week {
+  margin-left: auto;
+  width: 85%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  color: gray;
+  margin-bottom: 3pt;
+}
+
+.weekday {
+  width: 15pt;
+  text-align: center;
+}
+
+.date {
+  margin-left: auto;
+  width: 85%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+}
+
+.dateday {
+  width: 15pt;
+  text-align: center;
+}
+
+.timewrapper {
+  display: flex;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.timetitle {
+  width: 15%;
+  height: 720pt;
+  display: flex;
+  flex-direction: column;
+}
+
+.timetitlesection {
+  height: 30pt;
+  font-family: sans-serif;
+  font-size: 8pt;
+  color: gray;
+  position: relative;
+  top: 24pt;
+  left: calc(100% - 25pt);
+}
+
+.time {
+  display: flex;
+  margin-left: auto;
+  width: 85%;
+  height: auto;
+}
+
+.timeday {
+  flex-grow: 1;
+  width: 100%;
+  height: 720pt;
+  display: flex;
+  flex-direction: column;
+}
+
+.timesection {
+  width: 100%;
+  height: 30pt;
+  display: flex;
+  flex-direction: column;
+  border-left-style: solid;
+  border-left-color: #cccccc;
+  border-bottom-style: solid;
+  border-bottom-color: #cccccc;
+  border-width: 1pt;
+}
+
+.timeblock {
+  height: 15pt;
+  width: 100%;
+  border-bottom-style: dotted;
+  border-bottom-color: #eeeeee;
+  border-width: 1pt;
+  background-color: #ffffff;
+}
+
+.timeblock.blockend {
+  border-bottom-style: none;
+}
+
+.calendaradd {
+  width: 25pt;
+  position: absolute;
+  bottom: 15pt;
+  right: 15pt;
+  background-color: white;
+  border-radius: 12.5pt;
+}

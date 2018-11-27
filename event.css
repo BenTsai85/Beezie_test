@@ -1,0 +1,88 @@
+.page.event {
+  overflow-y: scroll;
+}
+
+.eventsection {
+  height: 130pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.eventsectiontitle {
+  padding-top: 10pt;
+  padding-left: 10pt;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+}
+
+.eventsectiontitle span {
+  float: right;
+  font-size: 8pt;
+  color: gray;
+  margin-top: 4pt;
+  margin-right: 5pt;
+}
+
+.eventlist {
+  height: 100pt;
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.eventblock {
+  width: 140pt;
+  height: 80pt;
+  margin: 7pt;
+  flex: 0 0 auto;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1pt;
+  border-radius: 10pt;
+  background-size: 140pt 80pt;
+}
+
+.eventheader {
+  height: 100%;
+  padding: 5pt;
+  float: left;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.eventtitle {
+  font-size: 10pt;
+  line-height: 14pt;
+  flex-grow: 1;
+  display: flex;
+  color: white;
+}
+
+.eventtitle span {
+  align-self: flex-end;
+}
+
+.eventtime {
+  font-size: 7pt;
+  color: lightgray;
+}
+.eventpeople {
+  font-size: 7pt;
+  color: lightgray;
+}
+
+.eventadd {
+  width: 25pt;
+  position: absolute;
+  bottom: 15pt;
+  right: 15pt;
+  background-color: white;
+  border-radius: 12.5pt;
+  margin: 5pt;
+}

@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="createEvent.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="event.css">
+    <link rel="stylesheet" href="eventDetail.css">
+    <link rel="stylesheet" href="friend.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="guest.css">
+    <link rel="stylesheet" href="toggle.css">
+    <link rel="stylesheet" href="help.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.5.2/redux.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <title>Beezie</title>
+  </head>
+  <body>
+    <div class="popupPage">
+      <div class="popupBox">
+        <div class="popupTitle">Welcome to Beezie!</div>
+        <div>
+          1. Select an availability status
+        </div>
+        <div>
+          2. Double click on the calendar
+        </div>
+        <div>
+          3. Drag through the slots that you will be in that status
+        </div>
+      </div>
+    </div>
+    <div class="mainPage">
+      <img class="helpMark" src="image/question.toggled.svg" />
+      <div class="navbar">
+        <img class="navitem calendar" src="image/calendar.svg" />
+        <img class="navitem toggled calendar" src="image/calendar.toggled.svg" />
+        <img class="navitem event" src="image/event.svg" />
+        <img class="navitem toggled event" src="image/event.toggled.svg" />
+        <img class="navitem friend" src="image/friend.svg" />
+        <img class="navitem toggled friend" src="image/friend.toggled.svg" />
+        <img class="navitem profile" src="image/profile.svg" />
+        <img class="navitem toggled profile" src="image/profile.toggled.svg" />
+      </div>
+      <hr>
+      <div class="page calendar">
+        <div class="avail">
+          <div class="availrow">
+            <div class="availitem free">
+                <img class="circle free" src="image/circle.free.svg" />
+                <img class="circle untoggled free" src="image/circle.untoggled.svg" />
+                <div class="description free untoggled">free</div>
+            </div>
+            <div class="availitem likely">
+              <img class="circle likely" src="image/circle.likely.svg" />
+              <img class="circle untoggled likely" src="image/circle.untoggled.svg" />
+              <div class="description likely untoggled">likely</div>
+            </div>
+          </div>
+          <div class="availrow">
+            <div class="availitem unlikely">
+                <img class="circle unlikely" src="image/circle.unlikely.svg" />
+                <img class="circle untoggled unlikely" src="image/circle.untoggled.svg" />
+                <div class="description unlikely untoggled">unlikely</div>
+            </div>
+            <div class="availitem unavailable">
+              <img class="circle unavailable" src="image/circle.unavailable.svg" />
+              <img class="circle untoggled unavailable" src="image/circle.untoggled.svg" />
+              <div class="description unavailable">unavailable</div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="calendar">
+          <div class="header">
+            <div class="month">October ▾</div>
+            <div class="week">
+              <div class="weekday">M</div>
+              <div class="weekday">T</div>
+              <div class="weekday">W</div>
+              <div class="weekday">T</div>
+              <div class="weekday">F</div>
+              <div class="weekday">S</div>
+              <div class="weekday">S</div>
+            </div>
+            <div class="date">
+                <div class="dateday">22</div>
+                <div class="dateday">23</div>
+                <div class="dateday">24</div>
+                <div class="dateday">25</div>
+                <div class="dateday">26</div>
+                <div class="dateday">27</div>
+                <div class="dateday">28</div>
+            </div>
+          </div>
+          <div class="timewrapper">
+            <div class="timetitle">
+              <div class="timetitlesection">01:00</div>
+              <div class="timetitlesection">02:00</div>
+              <div class="timetitlesection">03:00</div>
+              <div class="timetitlesection">04:00</div>
+              <div class="timetitlesection">05:00</div>
+              <div class="timetitlesection">06:00</div>
+              <div class="timetitlesection">07:00</div>
+              <div class="timetitlesection">08:00</div>
+              <div class="timetitlesection">09:00</div>
+              <div class="timetitlesection">10:00</div>
+              <div class="timetitlesection">11:00</div>
+              <div class="timetitlesection">12:00</div>
+              <div class="timetitlesection">13:00</div>
+              <div class="timetitlesection">14:00</div>
+              <div class="timetitlesection">15:00</div>
+              <div class="timetitlesection">16:00</div>
+              <div class="timetitlesection">17:00</div>
+              <div class="timetitlesection">18:00</div>
+              <div class="timetitlesection">19:00</div>
+              <div class="timetitlesection">20:00</div>
+              <div class="timetitlesection">21:00</div>
+              <div class="timetitlesection">22:00</div>
+              <div class="timetitlesection">23:00</div>
+            </div>
+            <div class="time">
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="201810220000"></div>
+                  <div class="timeblock blockend" id="201810220030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220100"></div>
+                  <div class="timeblock blockend" id="201810220130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220200"></div>
+                  <div class="timeblock blockend" id="201810220230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220300"></div>
+                  <div class="timeblock blockend" id="201810220330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220400"></div>
+                  <div class="timeblock blockend" id="201810220430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220500"></div>
+                  <div class="timeblock blockend" id="201810220530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220600"></div>
+                  <div class="timeblock blockend" id="201810220630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220700"></div>
+                  <div class="timeblock blockend" id="201810220730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220800"></div>
+                  <div class="timeblock blockend" id="201810220830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810220900"></div>
+                  <div class="timeblock blockend" id="201810220930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221000"></div>
+                  <div class="timeblock blockend" id="201810221030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221100"></div>
+                  <div class="timeblock blockend" id="201810221130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221200"></div>
+                  <div class="timeblock blockend" id="201810221230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221300"></div>
+                  <div class="timeblock blockend" id="201810221330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221400"></div>
+                  <div class="timeblock blockend" id="201810221430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221500"></div>
+                  <div class="timeblock blockend" id="201810221530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221600"></div>
+                  <div class="timeblock blockend" id="201810221630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221700"></div>
+                  <div class="timeblock blockend" id="201810221730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221800"></div>
+                  <div class="timeblock blockend" id="201810221830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810221900"></div>
+                  <div class="timeblock blockend" id="201810221930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810222000"></div>
+                  <div class="timeblock blockend" id="201810222030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810222100"></div>
+                  <div class="timeblock blockend" id="201810222130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810222200"></div>
+                  <div class="timeblock blockend" id="201810222230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810222300"></div>
+                  <div class="timeblock blockend" id="201810222330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="201810230000"></div>
+                  <div class="timeblock blockend" id="201810230030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230100"></div>
+                  <div class="timeblock blockend" id="201810230130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230200"></div>
+                  <div class="timeblock blockend" id="201810230230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230300"></div>
+                  <div class="timeblock blockend" id="201810230330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230400"></div>
+                  <div class="timeblock blockend" id="201810230430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230500"></div>
+                  <div class="timeblock blockend" id="201810230530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230600"></div>
+                  <div class="timeblock blockend" id="201810230630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230700"></div>
+                  <div class="timeblock blockend" id="201810230730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230800"></div>
+                  <div class="timeblock blockend" id="201810230830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810230900"></div>
+                  <div class="timeblock blockend" id="201810230930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231000"></div>
+                  <div class="timeblock blockend" id="201810231030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231100"></div>
+                  <div class="timeblock blockend" id="201810231130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231200"></div>
+                  <div class="timeblock blockend" id="201810231230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231300"></div>
+                  <div class="timeblock blockend" id="201810231330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231400"></div>
+                  <div class="timeblock blockend" id="201810231430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231500"></div>
+                  <div class="timeblock blockend" id="201810231530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231600"></div>
+                  <div class="timeblock blockend" id="201810231630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231700"></div>
+                  <div class="timeblock blockend" id="201810231730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231800"></div>
+                  <div class="timeblock blockend" id="201810231830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810231900"></div>
+                  <div class="timeblock blockend" id="201810231930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810232000"></div>
+                  <div class="timeblock blockend" id="201810232030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810232100"></div>
+                  <div class="timeblock blockend" id="201810232130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810232200"></div>
+                  <div class="timeblock blockend" id="201810232230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810232300"></div>
+                  <div class="timeblock blockend" id="201810232330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="201810240000"></div>
+                  <div class="timeblock blockend" id="201810240030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240100"></div>
+                  <div class="timeblock blockend" id="201810240130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240200"></div>
+                  <div class="timeblock blockend" id="201810240230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240300"></div>
+                  <div class="timeblock blockend" id="201810240330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240400"></div>
+                  <div class="timeblock blockend" id="201810240430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240500"></div>
+                  <div class="timeblock blockend" id="201810240530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240600"></div>
+                  <div class="timeblock blockend" id="201810240630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240700"></div>
+                  <div class="timeblock blockend" id="201810240730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240800"></div>
+                  <div class="timeblock blockend" id="201810240830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810240900"></div>
+                  <div class="timeblock blockend" id="201810240930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241000"></div>
+                  <div class="timeblock blockend" id="201810241030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241100"></div>
+                  <div class="timeblock blockend" id="201810241130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241200"></div>
+                  <div class="timeblock blockend" id="201810241230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241300"></div>
+                  <div class="timeblock blockend" id="201810241330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241400"></div>
+                  <div class="timeblock blockend" id="201810241430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241500"></div>
+                  <div class="timeblock blockend" id="201810241530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241600"></div>
+                  <div class="timeblock blockend" id="201810241630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241700"></div>
+                  <div class="timeblock blockend" id="201810241730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241800"></div>
+                  <div class="timeblock blockend" id="201810241830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810241900"></div>
+                  <div class="timeblock blockend" id="201810241930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810242000"></div>
+                  <div class="timeblock blockend" id="201810242030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810242100"></div>
+                  <div class="timeblock blockend" id="201810242130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810242200"></div>
+                  <div class="timeblock blockend" id="201810242230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810242300"></div>
+                  <div class="timeblock blockend" id="201810242330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="201810250000"></div>
+                  <div class="timeblock blockend" id="201810250030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250100"></div>
+                  <div class="timeblock blockend" id="201810250130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250200"></div>
+                  <div class="timeblock blockend" id="201810250230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250300"></div>
+                  <div class="timeblock blockend" id="201810250330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250400"></div>
+                  <div class="timeblock blockend" id="201810250430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250500"></div>
+                  <div class="timeblock blockend" id="201810250530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250600"></div>
+                  <div class="timeblock blockend" id="201810250630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250700"></div>
+                  <div class="timeblock blockend" id="201810250730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250800"></div>
+                  <div class="timeblock blockend" id="201810250830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810250900"></div>
+                  <div class="timeblock blockend" id="201810250930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251000"></div>
+                  <div class="timeblock blockend" id="201810251030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251100"></div>
+                  <div class="timeblock blockend" id="201810251130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251200"></div>
+                  <div class="timeblock blockend" id="201810251230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251300"></div>
+                  <div class="timeblock blockend" id="201810251330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251400"></div>
+                  <div class="timeblock blockend" id="201810251430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251500"></div>
+                  <div class="timeblock blockend" id="201810251530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251600"></div>
+                  <div class="timeblock blockend" id="201810251630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251700"></div>
+                  <div class="timeblock blockend" id="201810251730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251800"></div>
+                  <div class="timeblock blockend" id="201810251830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810251900"></div>
+                  <div class="timeblock blockend" id="201810251930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810252000"></div>
+                  <div class="timeblock blockend" id="201810252030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810252100"></div>
+                  <div class="timeblock blockend" id="201810252130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810252200"></div>
+                  <div class="timeblock blockend" id="201810252230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810252300"></div>
+                  <div class="timeblock blockend" id="201810252330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="201810260000"></div>
+                  <div class="timeblock blockend" id="201810260030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260100"></div>
+                  <div class="timeblock blockend" id="201810260130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260200"></div>
+                  <div class="timeblock blockend" id="201810260230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260300"></div>
+                  <div class="timeblock blockend" id="201810260330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260400"></div>
+                  <div class="timeblock blockend" id="201810260430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260500"></div>
+                  <div class="timeblock blockend" id="201810260530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260600"></div>
+                  <div class="timeblock blockend" id="201810260630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260700"></div>
+                  <div class="timeblock blockend" id="201810260730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260800"></div>
+                  <div class="timeblock blockend" id="201810260830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810260900"></div>
+                  <div class="timeblock blockend" id="201810260930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261000"></div>
+                  <div class="timeblock blockend" id="201810261030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261100"></div>
+                  <div class="timeblock blockend" id="201810261130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261200"></div>
+                  <div class="timeblock blockend" id="201810261230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261300"></div>
+                  <div class="timeblock blockend" id="201810261330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261400"></div>
+                  <div class="timeblock blockend" id="201810261430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261500"></div>
+                  <div class="timeblock blockend" id="201810261530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261600"></div>
+                  <div class="timeblock blockend" id="201810261630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261700"></div>
+                  <div class="timeblock blockend" id="201810261730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261800"></div>
+                  <div class="timeblock blockend" id="201810261830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810261900"></div>
+                  <div class="timeblock blockend" id="201810261930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810262000"></div>
+                  <div class="timeblock blockend" id="201810262030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810262100"></div>
+                  <div class="timeblock blockend" id="201810262130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810262200"></div>
+                  <div class="timeblock blockend" id="201810262230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810262300"></div>
+                  <div class="timeblock blockend" id="201810262330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="201810270000"></div>
+                  <div class="timeblock blockend" id="201810270030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270100"></div>
+                  <div class="timeblock blockend" id="201810270130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270200"></div>
+                  <div class="timeblock blockend" id="201810270230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270300"></div>
+                  <div class="timeblock blockend" id="201810270330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270400"></div>
+                  <div class="timeblock blockend" id="201810270430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270500"></div>
+                  <div class="timeblock blockend" id="201810270530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270600"></div>
+                  <div class="timeblock blockend" id="201810270630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270700"></div>
+                  <div class="timeblock blockend" id="201810270730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270800"></div>
+                  <div class="timeblock blockend" id="201810270830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810270900"></div>
+                  <div class="timeblock blockend" id="201810270930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271000"></div>
+                  <div class="timeblock blockend" id="201810271030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271100"></div>
+                  <div class="timeblock blockend" id="201810271130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271200"></div>
+                  <div class="timeblock blockend" id="201810271230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271300"></div>
+                  <div class="timeblock blockend" id="201810271330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271400"></div>
+                  <div class="timeblock blockend" id="201810271430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271500"></div>
+                  <div class="timeblock blockend" id="201810271530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271600"></div>
+                  <div class="timeblock blockend" id="201810271630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271700"></div>
+                  <div class="timeblock blockend" id="201810271730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271800"></div>
+                  <div class="timeblock blockend" id="201810271830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810271900"></div>
+                  <div class="timeblock blockend" id="201810271930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810272000"></div>
+                  <div class="timeblock blockend" id="201810272030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810272100"></div>
+                  <div class="timeblock blockend" id="201810272130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810272200"></div>
+                  <div class="timeblock blockend" id="201810272230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810272300"></div>
+                  <div class="timeblock blockend" id="201810272330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="201810280000"></div>
+                  <div class="timeblock blockend" id="201810280030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280100"></div>
+                  <div class="timeblock blockend" id="201810280130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280200"></div>
+                  <div class="timeblock blockend" id="201810280230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280300"></div>
+                  <div class="timeblock blockend" id="201810280330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280400"></div>
+                  <div class="timeblock blockend" id="201810280430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280500"></div>
+                  <div class="timeblock blockend" id="201810280530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280600"></div>
+                  <div class="timeblock blockend" id="201810280630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280700"></div>
+                  <div class="timeblock blockend" id="201810280730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280800"></div>
+                  <div class="timeblock blockend" id="201810280830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810280900"></div>
+                  <div class="timeblock blockend" id="201810280930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281000"></div>
+                  <div class="timeblock blockend" id="201810281030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281100"></div>
+                  <div class="timeblock blockend" id="201810281130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281200"></div>
+                  <div class="timeblock blockend" id="201810281230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281300"></div>
+                  <div class="timeblock blockend" id="201810281330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281400"></div>
+                  <div class="timeblock blockend" id="201810281430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281500"></div>
+                  <div class="timeblock blockend" id="201810281530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281600"></div>
+                  <div class="timeblock blockend" id="201810281630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281700"></div>
+                  <div class="timeblock blockend" id="201810281730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281800"></div>
+                  <div class="timeblock blockend" id="201810281830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810281900"></div>
+                  <div class="timeblock blockend" id="201810281930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810282000"></div>
+                  <div class="timeblock blockend" id="201810282030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810282100"></div>
+                  <div class="timeblock blockend" id="201810282130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810282200"></div>
+                  <div class="timeblock blockend" id="201810282230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="201810282300"></div>
+                  <div class="timeblock blockend" id="201810282330"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page event">
+        <img class="eventadd" src="image/add.svg" />
+        <div class="eventsection">
+          <div class="eventsectiontitle">
+            Events I created
+          </div>
+          <div class="eventlist" id="eventsICreated">
+          </div>
+        </div>
+        <div class="eventsection">
+          <div class="eventsectiontitle">
+            Events I'm going
+          </div>
+          <div class="eventlist" id="eventsImGoing">
+          </div>
+        </div>
+        <div class="eventsection">
+          <div class="eventsectiontitle">
+            Pending Invitations
+          </div>
+          <div class="eventlist" id="pendingInvitations">
+          </div>
+        </div>
+        <div class="eventsection">
+          <div class="eventsectiontitle">
+            Event History
+          </div>
+          <div class="eventlist" id="eventHistory">
+          </div>
+        </div>
+      </div>
+      <div class="page friend">
+
+        <div class="search">
+          <input type="text" class="friendListSearch" placeholder="Search Friends" title="Type in a name">
+        </div>
+    
+        <div class="friends" style="overflow-x:auto;">
+          <table class="friendListTable">
+          </table>
+        </div>
+      </div>
+      
+      <div class="page profile">
+        <img data-src="holder.js/200x200" class= "img-circle" alt="200x200" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX14845052.jpg" data-holder-rendered="true" style="width: 200px; height: 200px;" />
+        <p><strong>Name: </strong>Sam</p>
+        <p><strong>Email: </strong>sam@ucsd.edu</p>
+        <p><strong>Age: </strong>20</p>
+        <p><strong>Location: </strong> La Jolla San Diego (UCSD)</p>
+        <a href="login.html">
+          <button type="button" class="btn btn-primary">Sign Out</button>
+        </a>
+      </div>
+          
+    </div>
+
+    <div class="subPage">
+      <img class="backbutton" src="image/back.svg" />
+      <div class="eventDetail">
+        <div class="EDheader">
+          <div class="EDname"></div>
+        </div>
+        <div class="EDwillingness">
+          <div class="EDgoing">
+            <img class="EDgoingimg" src="image/check.svg" />
+            <img class="EDgoingimg toggle" src="image/check.toggled.svg" />
+            <div class="EDgoingtext">Going</div>
+          </div>
+          <div class="EDmaybe">
+            <img class="EDmaybeimg" src="image/question.svg" />
+            <img class="EDmaybeimg toggle" src="image/question.toggled.svg" />
+            <div class="EDmaybetext">Maybe</div>
+          </div>
+          <div class="EDno">
+            <img class="EDnoimg" src="image/cross.svg" />
+            <img class="EDnoimg toggle" src="image/cross.toggled.svg" />
+            <div class="EDnotext">No</div>
+          </div>
+          <div class="EDedit">
+            <img class="EDeditimg" src="image/edit.svg" />
+            <div class="EDedittext">Edit</div>
+          </div>
+          <div class="EDguest">
+            <img class="EDguestimg" src="image/guest.svg" />
+            <div class="EDguesttext">Guests</div>
+          </div>
+        </div>
+        <div class="EDinfo">
+          <div class="EDparticipant">
+            <img class="EDparticipantimg" src="image/friend.toggled.svg" />
+            <div class="EDparticipantinfo">
+              <div class="EDparticipantname"></div>
+              <div class="EDparticipantwillingness"></div>
+            </div>
+          </div>
+          <div class="EDtime">
+            <img class="EDtimeimg" src="image/calendar.toggled.svg" />
+            <div class="EDtimeinfo"></div>
+          </div>
+          <div class="EDlocation">
+            <img class="EDlocationimg" src="image/location.svg" />
+            <div class="EDlocationinfo"></div>
+          </div>
+        </div>
+        <div class="EDdetail">
+          <div class="EDdetailheader">Detail</div>
+          <div class="EDdetailinfo"></div>
+        </div>
+        <div class="calendar">
+          <div class="EDcalendarheader">Participants' availability</div>
+          <div class="showCalendarOption">
+            <div class="showCalendarOptionTitle">Show your availability</div>
+            <label class="switch showCalendarOptionToggle">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>            
+          </div>
+          <div class="header">
+            <div class="month">Oct</div>
+            <div class="week">
+              <div class="weekday">M</div>
+              <div class="weekday">T</div>
+              <div class="weekday">W</div>
+              <div class="weekday">T</div>
+              <div class="weekday">F</div>
+              <div class="weekday">S</div>
+              <div class="weekday">S</div>
+            </div>
+            <div class="date">
+                <div class="dateday">22</div>
+                <div class="dateday">23</div>
+                <div class="dateday">24</div>
+                <div class="dateday">25</div>
+                <div class="dateday">26</div>
+                <div class="dateday">27</div>
+                <div class="dateday">28</div>
+            </div>
+          </div>
+          <div class="timewrapper">
+            <div class="timetitle">
+              <div class="timetitlesection">01:00</div>
+              <div class="timetitlesection">02:00</div>
+              <div class="timetitlesection">03:00</div>
+              <div class="timetitlesection">04:00</div>
+              <div class="timetitlesection">05:00</div>
+              <div class="timetitlesection">06:00</div>
+              <div class="timetitlesection">07:00</div>
+              <div class="timetitlesection">08:00</div>
+              <div class="timetitlesection">09:00</div>
+              <div class="timetitlesection">10:00</div>
+              <div class="timetitlesection">11:00</div>
+              <div class="timetitlesection">12:00</div>
+              <div class="timetitlesection">13:00</div>
+              <div class="timetitlesection">14:00</div>
+              <div class="timetitlesection">15:00</div>
+              <div class="timetitlesection">16:00</div>
+              <div class="timetitlesection">17:00</div>
+              <div class="timetitlesection">18:00</div>
+              <div class="timetitlesection">19:00</div>
+              <div class="timetitlesection">20:00</div>
+              <div class="timetitlesection">21:00</div>
+              <div class="timetitlesection">22:00</div>
+              <div class="timetitlesection">23:00</div>
+            </div>
+            <div class="time">
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220000"></div>
+                  <div class="timeblock blockend" id="ED201810220030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220100"></div>
+                  <div class="timeblock blockend" id="ED201810220130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220200"></div>
+                  <div class="timeblock blockend" id="ED201810220230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220300"></div>
+                  <div class="timeblock blockend" id="ED201810220330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220400"></div>
+                  <div class="timeblock blockend" id="ED201810220430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220500"></div>
+                  <div class="timeblock blockend" id="ED201810220530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220600"></div>
+                  <div class="timeblock blockend" id="ED201810220630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220700"></div>
+                  <div class="timeblock blockend" id="ED201810220730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220800"></div>
+                  <div class="timeblock blockend" id="ED201810220830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810220900"></div>
+                  <div class="timeblock blockend" id="ED201810220930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221000"></div>
+                  <div class="timeblock blockend" id="ED201810221030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221100"></div>
+                  <div class="timeblock blockend" id="ED201810221130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221200"></div>
+                  <div class="timeblock blockend" id="ED201810221230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221300"></div>
+                  <div class="timeblock blockend" id="ED201810221330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221400"></div>
+                  <div class="timeblock blockend" id="ED201810221430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221500"></div>
+                  <div class="timeblock blockend" id="ED201810221530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221600"></div>
+                  <div class="timeblock blockend" id="ED201810221630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221700"></div>
+                  <div class="timeblock blockend" id="ED201810221730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221800"></div>
+                  <div class="timeblock blockend" id="ED201810221830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810221900"></div>
+                  <div class="timeblock blockend" id="ED201810221930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810222000"></div>
+                  <div class="timeblock blockend" id="ED201810222030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810222100"></div>
+                  <div class="timeblock blockend" id="ED201810222130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810222200"></div>
+                  <div class="timeblock blockend" id="ED201810222230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810222300"></div>
+                  <div class="timeblock blockend" id="ED201810222330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230000"></div>
+                  <div class="timeblock blockend" id="ED201810230030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230100"></div>
+                  <div class="timeblock blockend" id="ED201810230130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230200"></div>
+                  <div class="timeblock blockend" id="ED201810230230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230300"></div>
+                  <div class="timeblock blockend" id="ED201810230330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230400"></div>
+                  <div class="timeblock blockend" id="ED201810230430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230500"></div>
+                  <div class="timeblock blockend" id="ED201810230530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230600"></div>
+                  <div class="timeblock blockend" id="ED201810230630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230700"></div>
+                  <div class="timeblock blockend" id="ED201810230730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230800"></div>
+                  <div class="timeblock blockend" id="ED201810230830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810230900"></div>
+                  <div class="timeblock blockend" id="ED201810230930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231000"></div>
+                  <div class="timeblock blockend" id="ED201810231030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231100"></div>
+                  <div class="timeblock blockend" id="ED201810231130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231200"></div>
+                  <div class="timeblock blockend" id="ED201810231230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231300"></div>
+                  <div class="timeblock blockend" id="ED201810231330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231400"></div>
+                  <div class="timeblock blockend" id="ED201810231430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231500"></div>
+                  <div class="timeblock blockend" id="ED201810231530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231600"></div>
+                  <div class="timeblock blockend" id="ED201810231630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231700"></div>
+                  <div class="timeblock blockend" id="ED201810231730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231800"></div>
+                  <div class="timeblock blockend" id="ED201810231830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810231900"></div>
+                  <div class="timeblock blockend" id="ED201810231930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810232000"></div>
+                  <div class="timeblock blockend" id="ED201810232030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810232100"></div>
+                  <div class="timeblock blockend" id="ED201810232130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810232200"></div>
+                  <div class="timeblock blockend" id="ED201810232230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810232300"></div>
+                  <div class="timeblock blockend" id="ED201810232330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240000"></div>
+                  <div class="timeblock blockend" id="ED201810240030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240100"></div>
+                  <div class="timeblock blockend" id="ED201810240130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240200"></div>
+                  <div class="timeblock blockend" id="ED201810240230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240300"></div>
+                  <div class="timeblock blockend" id="ED201810240330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240400"></div>
+                  <div class="timeblock blockend" id="ED201810240430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240500"></div>
+                  <div class="timeblock blockend" id="ED201810240530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240600"></div>
+                  <div class="timeblock blockend" id="ED201810240630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240700"></div>
+                  <div class="timeblock blockend" id="ED201810240730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240800"></div>
+                  <div class="timeblock blockend" id="ED201810240830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810240900"></div>
+                  <div class="timeblock blockend" id="ED201810240930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241000"></div>
+                  <div class="timeblock blockend" id="ED201810241030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241100"></div>
+                  <div class="timeblock blockend" id="ED201810241130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241200"></div>
+                  <div class="timeblock blockend" id="ED201810241230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241300"></div>
+                  <div class="timeblock blockend" id="ED201810241330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241400"></div>
+                  <div class="timeblock blockend" id="ED201810241430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241500"></div>
+                  <div class="timeblock blockend" id="ED201810241530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241600"></div>
+                  <div class="timeblock blockend" id="ED201810241630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241700"></div>
+                  <div class="timeblock blockend" id="ED201810241730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241800"></div>
+                  <div class="timeblock blockend" id="ED201810241830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810241900"></div>
+                  <div class="timeblock blockend" id="ED201810241930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810242000"></div>
+                  <div class="timeblock blockend" id="ED201810242030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810242100"></div>
+                  <div class="timeblock blockend" id="ED201810242130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810242200"></div>
+                  <div class="timeblock blockend" id="ED201810242230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810242300"></div>
+                  <div class="timeblock blockend" id="ED201810242330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250000"></div>
+                  <div class="timeblock blockend" id="ED201810250030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250100"></div>
+                  <div class="timeblock blockend" id="ED201810250130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250200"></div>
+                  <div class="timeblock blockend" id="ED201810250230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250300"></div>
+                  <div class="timeblock blockend" id="ED201810250330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250400"></div>
+                  <div class="timeblock blockend" id="ED201810250430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250500"></div>
+                  <div class="timeblock blockend" id="ED201810250530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250600"></div>
+                  <div class="timeblock blockend" id="ED201810250630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250700"></div>
+                  <div class="timeblock blockend" id="ED201810250730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250800"></div>
+                  <div class="timeblock blockend" id="ED201810250830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810250900"></div>
+                  <div class="timeblock blockend" id="ED201810250930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251000"></div>
+                  <div class="timeblock blockend" id="ED201810251030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251100"></div>
+                  <div class="timeblock blockend" id="ED201810251130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251200"></div>
+                  <div class="timeblock blockend" id="ED201810251230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251300"></div>
+                  <div class="timeblock blockend" id="ED201810251330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251400"></div>
+                  <div class="timeblock blockend" id="ED201810251430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251500"></div>
+                  <div class="timeblock blockend" id="ED201810251530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251600"></div>
+                  <div class="timeblock blockend" id="ED201810251630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251700"></div>
+                  <div class="timeblock blockend" id="ED201810251730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251800"></div>
+                  <div class="timeblock blockend" id="ED201810251830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810251900"></div>
+                  <div class="timeblock blockend" id="ED201810251930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810252000"></div>
+                  <div class="timeblock blockend" id="ED201810252030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810252100"></div>
+                  <div class="timeblock blockend" id="ED201810252130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810252200"></div>
+                  <div class="timeblock blockend" id="ED201810252230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810252300"></div>
+                  <div class="timeblock blockend" id="ED201810252330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260000"></div>
+                  <div class="timeblock blockend" id="ED201810260030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260100"></div>
+                  <div class="timeblock blockend" id="ED201810260130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260200"></div>
+                  <div class="timeblock blockend" id="ED201810260230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260300"></div>
+                  <div class="timeblock blockend" id="ED201810260330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260400"></div>
+                  <div class="timeblock blockend" id="ED201810260430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260500"></div>
+                  <div class="timeblock blockend" id="ED201810260530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260600"></div>
+                  <div class="timeblock blockend" id="ED201810260630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260700"></div>
+                  <div class="timeblock blockend" id="ED201810260730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260800"></div>
+                  <div class="timeblock blockend" id="ED201810260830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810260900"></div>
+                  <div class="timeblock blockend" id="ED201810260930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261000"></div>
+                  <div class="timeblock blockend" id="ED201810261030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261100"></div>
+                  <div class="timeblock blockend" id="ED201810261130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261200"></div>
+                  <div class="timeblock blockend" id="ED201810261230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261300"></div>
+                  <div class="timeblock blockend" id="ED201810261330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261400"></div>
+                  <div class="timeblock blockend" id="ED201810261430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261500"></div>
+                  <div class="timeblock blockend" id="ED201810261530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261600"></div>
+                  <div class="timeblock blockend" id="ED201810261630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261700"></div>
+                  <div class="timeblock blockend" id="ED201810261730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261800"></div>
+                  <div class="timeblock blockend" id="ED201810261830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810261900"></div>
+                  <div class="timeblock blockend" id="ED201810261930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810262000"></div>
+                  <div class="timeblock blockend" id="ED201810262030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810262100"></div>
+                  <div class="timeblock blockend" id="ED201810262130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810262200"></div>
+                  <div class="timeblock blockend" id="ED201810262230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810262300"></div>
+                  <div class="timeblock blockend" id="ED201810262330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270000"></div>
+                  <div class="timeblock blockend" id="ED201810270030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270100"></div>
+                  <div class="timeblock blockend" id="ED201810270130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270200"></div>
+                  <div class="timeblock blockend" id="ED201810270230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270300"></div>
+                  <div class="timeblock blockend" id="ED201810270330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270400"></div>
+                  <div class="timeblock blockend" id="ED201810270430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270500"></div>
+                  <div class="timeblock blockend" id="ED201810270530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270600"></div>
+                  <div class="timeblock blockend" id="ED201810270630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270700"></div>
+                  <div class="timeblock blockend" id="ED201810270730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270800"></div>
+                  <div class="timeblock blockend" id="ED201810270830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810270900"></div>
+                  <div class="timeblock blockend" id="ED201810270930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271000"></div>
+                  <div class="timeblock blockend" id="ED201810271030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271100"></div>
+                  <div class="timeblock blockend" id="ED201810271130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271200"></div>
+                  <div class="timeblock blockend" id="ED201810271230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271300"></div>
+                  <div class="timeblock blockend" id="ED201810271330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271400"></div>
+                  <div class="timeblock blockend" id="ED201810271430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271500"></div>
+                  <div class="timeblock blockend" id="ED201810271530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271600"></div>
+                  <div class="timeblock blockend" id="ED201810271630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271700"></div>
+                  <div class="timeblock blockend" id="ED201810271730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271800"></div>
+                  <div class="timeblock blockend" id="ED201810271830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810271900"></div>
+                  <div class="timeblock blockend" id="ED201810271930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810272000"></div>
+                  <div class="timeblock blockend" id="ED201810272030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810272100"></div>
+                  <div class="timeblock blockend" id="ED201810272130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810272200"></div>
+                  <div class="timeblock blockend" id="ED201810272230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810272300"></div>
+                  <div class="timeblock blockend" id="ED201810272330"></div>
+                </div>
+              </div>
+              <div class="timeday">
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280000"></div>
+                  <div class="timeblock blockend" id="ED201810280030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280100"></div>
+                  <div class="timeblock blockend" id="ED201810280130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280200"></div>
+                  <div class="timeblock blockend" id="ED201810280230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280300"></div>
+                  <div class="timeblock blockend" id="ED201810280330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280400"></div>
+                  <div class="timeblock blockend" id="ED201810280430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280500"></div>
+                  <div class="timeblock blockend" id="ED201810280530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280600"></div>
+                  <div class="timeblock blockend" id="ED201810280630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280700"></div>
+                  <div class="timeblock blockend" id="ED201810280730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280800"></div>
+                  <div class="timeblock blockend" id="ED201810280830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810280900"></div>
+                  <div class="timeblock blockend" id="ED201810280930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281000"></div>
+                  <div class="timeblock blockend" id="ED201810281030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281100"></div>
+                  <div class="timeblock blockend" id="ED201810281130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281200"></div>
+                  <div class="timeblock blockend" id="ED201810281230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281300"></div>
+                  <div class="timeblock blockend" id="ED201810281330"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281400"></div>
+                  <div class="timeblock blockend" id="ED201810281430"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281500"></div>
+                  <div class="timeblock blockend" id="ED201810281530"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281600"></div>
+                  <div class="timeblock blockend" id="ED201810281630"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281700"></div>
+                  <div class="timeblock blockend" id="ED201810281730"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281800"></div>
+                  <div class="timeblock blockend" id="ED201810281830"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810281900"></div>
+                  <div class="timeblock blockend" id="ED201810281930"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810282000"></div>
+                  <div class="timeblock blockend" id="ED201810282030"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810282100"></div>
+                  <div class="timeblock blockend" id="ED201810282130"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810282200"></div>
+                  <div class="timeblock blockend" id="ED201810282230"></div>
+                </div>
+                <div class="timesection">
+                  <div class="timeblock" id="ED201810282300"></div>
+                  <div class="timeblock blockend" id="ED201810282330"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="editEvent createEvent">
+        <label class="createEventImage">
+          <input type="file" class="createEventImageFile" />
+          <div></div>
+          <img />
+          <input type="text" class="createEventName" placeholder="Event Name">
+        </label>
+        <div class="container">
+          
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="control-label col-sm-2" for="Details">
+                Event Details:</label>
+            </div>
+            <div class="col-sm-10">
+              <textarea class="form-control createEventDetail" aria-label="Event Details"></textarea>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="control-label col-sm-2"
+              for="location">Event Location:</label>
+            </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control createEventLocation" aria-label="location">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="control-label col-sm-2">
+                  What times might work: </label>
+            </div>
+            <div class="col-sm-10">
+              <input style="width: 100%;color:DimGrey;" type="text" name="datetime1" class="form-control createEventPeriod" placeholder="No earlies than" />
+            </div>
+            <div class="col-sm-10">
+              <input style="width: 100%;color:DimGrey;" type="text" name="datetime2" class="form-control createEventPeriod" placeholder="No later than" />
+            </div>
+          </div>
+    
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="control-label col-sm-2">
+                  Pick a specific time (optional): </label>
+            </div>
+            <div class="col-sm-10">
+              <input style="width: 100%;color:DimGrey;" type="text" name="datetime3" class="form-control createEventTime" placeholder="From" />
+            </div>
+            <div class="col-sm-10">
+              <input style="width: 100%;color:DimGrey;" type="text" name="datetime4" class="form-control createEventTime" placeholder="To" />
+            </div>
+          </div>
+      
+          <button class="btn btn-primary createEventSubmit">Submit</button>
+        </div>
+
+      </div>
+      <div class="guest">
+        <div class="guestBar">
+          <div class="guestBarItem guestList">Guest List</div>
+          <div class="guestBarItem invitePeople">Invite People</div>
+        </div>
+        <div class="search">
+          <input type="text" class="guestSearch" placeholder="Search name">
+        </div>
+    
+        <div class="friends" style="overflow-x:auto;">
+          <table class="guestTable">
+          </table>
+        </div>
+      </div>
+      <div class="help">
+        <div class="helpTitle">Help</div>
+        <div class="accordion">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">
+                <a data-toggle="collapse" data-target="#collapse1" href="#collapse1"><div>Event</div></a>
+              </h4>
+            </div>
+            <div class="collapse" id="collapse1">
+              <div class="list-group">
+                <li class="list-group-item">
+                  <h5>How to Creat a Event</h5>
+                  <p> 1. go to event page, <br> 2. click the + sign
+                  <br>3. enter the information and click submit </p>
+                </li>
+                <li class="list-group-item">
+                  <h5>How to Check a Event</h5>
+                  <p> 1.go to event page, <br> 2.click the event image </p>
+                </li>
+                <li class="list-group-item">
+                  <h5>How to invite guests to a Event</h5>
+                  <p> 1. go to event page, <br> 2. click the event image
+                  <br>3. click on the guets button </p>
+                </li>
+                <li class="list-group-item">
+                  <h5>How to Check Participants' Availability</h5>
+                  <p> 1. go to event page, <br> 2. click the event image
+                  <br>3. at the bottom of the page, you can scroll up or down
+                      the availability calendar to see the availability</p>
+                </li>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">
+                <a data-toggle="collapse" data-target="#collapse2" href="#collapse3"><div>Availability Calendar</div></a>
+            </h4>
+          </div>
+          <div class="collapse" id="collapse2">
+            <div class="list-group">
+              <li class="list-group-item">
+                <h5>How to Update my Calendar</h5>
+                <p>1. Select a status <br>2. Double click on the Calendar.
+                  <br>3. Drag through the slots that
+                    you will be in that status. </p>
+              </li>
+              <li class="list-group-item">
+                <h5>How the calendar affect the event</h5>
+                <p>The change you made in your calendar would be updated in the
+                Participants' availability table in the event detail page.<br>
+                To protect privacy we did not expose individuals availability. Therefore,
+                the change made by you may not be that obviously<br>
+                To test this function, you can create an event only for you and in that case,
+                  the change caused by your update would be obvious.  </p>
+              </li>
+      
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">
+                <a data-toggle="collapse" data-target="#collapse3" href="#collapse3"><div>Friends</div></a>
+            </h4>
+          </div>
+          <div>
+            <div class="list-group collapse" id="collapse3">
+              <li class="list-group-item">
+                <h5>How to search Friends ?</h5>
+                <p>1.click the thrid button on the navigation bar <br>
+                  2.At the top of the page, under the navigation bar, there is
+                  a search bar <br>3.Enter the name you are searching for</p>
+                </li>
+              <li class="list-group-item">How to add new friedns </li>
+                <p>1.search the name of the friends you are looking for <br>
+                2.Click the button at right. </p>
+              </li>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">
+                <a data-toggle="collapse" data-target="#collapse4" href="#collapse4"><div>Profile</div></a>
+            </h4>
+          </div>
+          <div class="collapse" id="collapse4">
+            <div class="list-group">
+              <li class="list-group-item">
+                <h5>How to edit the Profile</h5>
+                <p>For now, we will not allow you to edit the Profile, since it may
+                mess up out mocked up database </p>
+              </li>
+              <li class="list-group-item">
+                <h5>How to Check my Profile</h5>
+                <p> 1.in the navigation bar, click the left most button </p>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="mockup.js"></script>
+  <script src="store.js"></script>
+  <script src="calendar.js"></script>
+  <script src="navigation.js"></script>
+  <script src="event.js"></script>
+  <script src="eventDetail.js"></script>
+  <script src="createEvent.js"></script>
+  <script src="friend.js"></script>
+  <script src="popup.js"></script>
+  <script src="guest.js"></script>
+</html>
