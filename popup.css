@@ -4,6 +4,7 @@
   background-color: rgba(150, 150, 150, 0.5);
   position: absolute;
   z-index: 2;
+  overflow: hidden;
 }
 
 .popupBox {
