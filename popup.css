@@ -32,12 +32,20 @@
   left: 15%;
 }
 
-.calendarAddPopup div {
+.calendarAddPopup > div {
   width: 70%;
   height: 30pt;
   text-align: center;
   display: flex;
   border-style: none;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-weight: bold;
+}
+
+.calendarAddPopup > div > * {
+  height: 100%;
 }
 
 .calendarAddPopup div:not(:last-child) {

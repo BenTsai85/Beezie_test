@@ -101,7 +101,7 @@ $('#calendarAddPopupInput3').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM
   $('#calendarAddPopupInput1').bootstrapMaterialDatePicker('setMinDate', date)
 })
 
-$('#calendarAddPopupInput4').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22), date: false })
+$('#calendarAddPopupInput4').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22, 1), date: false })
 
 $('.calendarAddPopupConfirm').click(e => {
   const calendar = store.getState().account.calendar
