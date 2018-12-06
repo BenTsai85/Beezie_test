@@ -85,15 +85,25 @@ $('.calendaradd').click(e => {
   $('.calendarAddPopup').show()
 })
 
-$('#calendarAddPopupInput1').bootstrapMaterialDatePicker({ format : 'DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
+$('#calendarAddPopupInput1').bootstrapMaterialDatePicker({ format : 'DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', () => {
+  const date = $('#calendarAddPopupInput1')[0].value
   $('#calendarAddPopupInput3').bootstrapMaterialDatePicker('setMinDate', date)
+  if (date > $('#calendarAddPopupInput3')[0].value) {
+    $('#calendarAddPopupInput3')[0].value = date
+  }
 })
 
-$('#calendarAddPopupInput2').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22), date: false })
-
-$('#calendarAddPopupInput3').bootstrapMaterialDatePicker({ format : 'DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
-  $('#calendarAddPopupInput1').bootstrapMaterialDatePicker('setMinDate', date)
+$('#calendarAddPopupInput2').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22), date: false }).on('change', () => {
+  const date = $('#calendarAddPopupInput2')[0].value
+  if ($('#calendarAddPopupInput1')[0].value == $('#calendarAddPopupInput3')[0].value) {
+    $('#calendarAddPopupInput4').bootstrapMaterialDatePicker('setMinDate', date)
+    if (date > $('#calendarAddPopupInput4')[0].value) {
+      $('#calendarAddPopupInput4')[0].value = date
+    }
+  }
 })
+
+$('#calendarAddPopupInput3').bootstrapMaterialDatePicker({ format : 'DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false })
 
 $('#calendarAddPopupInput4').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22, 1), date: false })
 
@@ -116,8 +126,8 @@ $('.calendarAddPopupConfirm').click(e => {
     endTime = endTime.substring(0, 3) + "00"
   }
 
-  const start = '201810' + startDate.substring(5, 7) + startTime.substring(0, 2) + startTime.substring(3)
-  const end = '201810' + endDate.substring(5, 7) + endTime.substring(0, 2) + endTime.substring(3)
+  const start = '201810' + startDate.substring(0, 2) + startTime.substring(0, 2) + startTime.substring(3)
+  const end = '201810' + endDate.substring(0, 2) + endTime.substring(0, 2) + endTime.substring(3)
 
   for (let i = 0; i < calendar.length; ++i) {
     if (calendar[i][0] < start && calendar[i][1] > start && end >= calendar[i][1]) {
@@ -144,12 +154,10 @@ $('.calendarAddPopupConfirm').click(e => {
     payload: calendar
   })
 
-  $('.calendarAddPopup input').bootstrapMaterialDatePicker('setDate', new Date(2018, 10, 22))
   $('.popupPage').hide()
 })
 
 $('.calendarAddPopupCancel').click(e => {
-  $('.calendarAddPopup input').bootstrapMaterialDatePicker('setDate', new Date(2018, 10, 22))
   $('.popupPage').hide()
 })
 
