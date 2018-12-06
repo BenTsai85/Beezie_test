@@ -45,12 +45,6 @@ store.subscribe(() => {
       $('#' + time).css({ backgroundColor: num2color(temp[2]), borderBottomColor: num2color(temp[2]), borderBottomStyle: 'solid' })
     }
   }
-
-  if (page.popup) {
-    $('.calendarAddPopup').show()
-  } else {
-    $('.calendarAddPopup').hide()
-  }
 })
 
 store.dispatch({
@@ -91,13 +85,13 @@ $('.calendaradd').click(e => {
   $('.calendarAddPopup').show()
 })
 
-$('#calendarAddPopupInput1').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
+$('#calendarAddPopupInput1').bootstrapMaterialDatePicker({ format : 'DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
   $('#calendarAddPopupInput3').bootstrapMaterialDatePicker('setMinDate', date)
 })
 
 $('#calendarAddPopupInput2').bootstrapMaterialDatePicker({ format : 'HH:mm', currentDate: new Date(2018, 10, 22), date: false })
 
-$('#calendarAddPopupInput3').bootstrapMaterialDatePicker({ format : 'ddd, DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
+$('#calendarAddPopupInput3').bootstrapMaterialDatePicker({ format : 'DD MMM, YYYY', minDate: new Date(2018, 10, 22), maxDate: new Date(2018, 10, 28), currentDate: new Date(2018, 10, 22), time: false }).on('change', (e, date) => {
   $('#calendarAddPopupInput1').bootstrapMaterialDatePicker('setMinDate', date)
 })
 
@@ -151,10 +145,12 @@ $('.calendarAddPopupConfirm').click(e => {
   })
 
   $('.calendarAddPopup input').bootstrapMaterialDatePicker('setDate', new Date(2018, 10, 22))
+  $('.popupPage').hide()
 })
 
 $('.calendarAddPopupCancel').click(e => {
   $('.calendarAddPopup input').bootstrapMaterialDatePicker('setDate', new Date(2018, 10, 22))
+  $('.popupPage').hide()
 })
 
 // $('.mainPage .timeblock').on('touchstart', e => {

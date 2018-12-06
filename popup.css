@@ -28,12 +28,13 @@
 
 .calendarAddPopup {
   position: relative;
-  top: calc(50% - 50pt);
-  left: 15%;
+  top: calc(50% - 90pt);
+  left: 8%;
+  display: none;
 }
 
 .calendarAddPopup > div {
-  width: 70%;
+  width: 84%;
   height: 30pt;
   text-align: center;
   display: flex;
@@ -48,19 +49,19 @@
   height: 100%;
 }
 
-.calendarAddPopup div:not(:last-child) {
+.calendarAddPopup > div:not(:last-child):not(:nth-child(2)) {
   border-bottom: 1pt solid #ddd;
 }
 
-.calendarAddPopup div input:first-child {
+.calendarAddPopup input:first-child {
   width: 70%;
-  padding-left: 5pt;
+  padding-left: 10pt;
 }
 
-.calendarAddPopup div input:nth-child(2) {
+.calendarAddPopup input:nth-child(2) {
   width: 30%;
   text-align: right;
-  padding-right: 5pt;
+  padding-right: 10pt;
 }
 
 .calendarAddPopup button {
@@ -72,4 +73,49 @@
 
 .calendarAddPopup button:first-child {
   border-right: 1pt solid #ddd;
+}
+
+.availrow {
+  height: 30pt;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 27pt;
+  padding-left: 7pt;
+  padding-right: 7pt;
+}
+
+.availitem {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.circle {
+  height: 20pt;
+  margin-right: 5pt;
+  margin-left: 5pt;
+  display: none;
+}
+
+.untoggled {
+  color: lightgray;
+}
+
+.description {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+}
+
+.circle.untoggled {
+  display: inline;
+}
+
+.circle.unavailable {
+  display: inline;
+}
+
+.circle.unavailable.untoggled {
+  display: none;
 }
